@@ -1,5 +1,16 @@
+export * from "./agents/client/requests/index.js";
+export * as agents from "./agents/index.js";
+export * from "./agents/types/index.js";
+export * from "./backtests/client/requests/index.js";
+export * as backtests from "./backtests/index.js";
+export * from "./credentials/client/requests/index.js";
+export * as credentials from "./credentials/index.js";
+export * from "./datasets/client/requests/index.js";
+export * as datasets from "./datasets/index.js";
 export * from "./discover/client/requests/index.js";
 export * as discover from "./discover/index.js";
+export * from "./environments/client/requests/index.js";
+export * as environments from "./environments/index.js";
 export * from "./events/client/requests/index.js";
 export * as events from "./events/index.js";
 export * from "./links/client/requests/index.js";
