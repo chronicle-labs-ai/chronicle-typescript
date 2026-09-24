@@ -9,5 +9,8 @@
 export interface ListBacktestJobTrialsRequest {
     job_id: string;
     limit?: number;
+    /** Opaque position returned as `next_cursor` by the preceding page. */
+    cursor?: string;
+    /** Deprecated compatibility input. Pass the opaque `cursor` instead. */
     offset?: number;
 }

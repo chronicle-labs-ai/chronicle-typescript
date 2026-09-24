@@ -2,6 +2,7 @@
 
 export interface ListBacktestJobsResponse {
     hasMore: boolean;
+    nextCursor?: (string | null) | undefined;
     nextOffset?: (number | null) | undefined;
     runs: ListBacktestJobsResponse.Runs.Item[];
 }

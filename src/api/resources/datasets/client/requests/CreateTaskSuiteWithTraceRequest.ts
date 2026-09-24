@@ -12,7 +12,7 @@
  *     }
  */
 export interface CreateTaskSuiteWithTraceRequest {
-    /** Optional caller-generated key for safely retrying a mutation. */
+    /** Optional caller-generated key for safely retrying a mutation after an ambiguous network failure. Keys are scoped to the authenticated tenant and operation. Reusing a key with the same payload returns the original successful result; reusing it with a different payload returns 409. */
     "Idempotency-Key"?: string;
     dataset: CreateTaskSuiteWithTraceRequest.Dataset;
     trace: CreateTaskSuiteWithTraceRequest.Trace;
