@@ -91,9 +91,17 @@ Requires scope events:write.
 
 ```typescript
 await client.events.ingestEvent({
-    source: "my-agent",
+    source: "support-agent",
     topic: "conversations",
-    event_type: "message.sent"
+    event_type: "message.sent",
+    entities: {
+        "user": "usr_123"
+    },
+    payload: {
+        "role": "assistant",
+        "content": "Your refund is approved."
+    },
+    timestamp: "2026-09-24T14:30:00Z"
 });
 
 ```
@@ -3545,8 +3553,9 @@ await client.environments.listEnvironments();
 
 ```typescript
 await client.environments.createEnvironment({
-    slug: "slug",
-    label: "label"
+    slug: "support-sandbox",
+    label: "Support sandbox",
+    description: "Isolated environment for support-agent backtests."
 });
 
 ```

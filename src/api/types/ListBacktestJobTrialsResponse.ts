@@ -5,6 +5,7 @@
  */
 export interface ListBacktestJobTrialsResponse {
     hasMore: boolean;
+    nextCursor?: (string | null) | undefined;
     nextOffset?: (number | null) | undefined;
     /** Outer key = trial id; inner key = reward name. */
     rewards: Record<string, Record<string, number>>;

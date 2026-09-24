@@ -17,7 +17,7 @@ export declare namespace BacktestsClient {
 }
 
 /**
- * Long-running backtest jobs, trials, evidence, and progress streams
+ * Long-running backtest jobs, trials, evidence, and progress streams. Creation returns 202 with a job identifier. Poll the job resource or follow its SSE stream for progress and terminal status; fetch trials for result and error evidence. Jobs may be cancelled through the cancel operation. After an ambiguous launch failure, retry with the same Idempotency-Key and identical payload rather than creating a second job.
  */
 export class BacktestsClient {
     protected readonly _options: NormalizedClientOptionsWithAuth<BacktestsClient.Options>;
@@ -122,11 +122,12 @@ export class BacktestsClient {
         request: ChronicleLabsApi.ListBacktestJobsRequest = {},
         requestOptions?: BacktestsClient.RequestOptions,
     ): Promise<core.WithRawResponse<ChronicleLabsApi.ListBacktestJobsResponse>> {
-        const { mode, status, limit, offset } = request;
+        const { mode, status, limit, cursor, offset } = request;
         const _queryParams: Record<string, unknown> = {
             mode,
             status,
             limit,
+            cursor,
             offset,
         };
         const _authRequest: core.AuthRequest = await this._options.authProvider.getAuthRequest();
@@ -420,9 +421,10 @@ export class BacktestsClient {
         request: ChronicleLabsApi.ListBacktestJobTrialsRequest,
         requestOptions?: BacktestsClient.RequestOptions,
     ): Promise<core.WithRawResponse<ChronicleLabsApi.ListBacktestJobTrialsResponse>> {
-        const { job_id: jobId, limit, offset } = request;
+        const { job_id: jobId, limit, cursor, offset } = request;
         const _queryParams: Record<string, unknown> = {
             limit,
+            cursor,
             offset,
         };
         const _authRequest: core.AuthRequest = await this._options.authProvider.getAuthRequest();

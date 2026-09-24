@@ -169,9 +169,17 @@ export class EventsClient {
      *
      * @example
      *     await client.events.ingestEvent({
-     *         source: "my-agent",
+     *         source: "support-agent",
      *         topic: "conversations",
-     *         event_type: "message.sent"
+     *         event_type: "message.sent",
+     *         entities: {
+     *             "user": "usr_123"
+     *         },
+     *         payload: {
+     *             "role": "assistant",
+     *             "content": "Your refund is approved."
+     *         },
+     *         timestamp: "2026-09-24T14:30:00Z"
      *     })
      */
     public ingestEvent(

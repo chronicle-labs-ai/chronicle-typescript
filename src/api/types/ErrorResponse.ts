@@ -13,7 +13,7 @@ export interface ErrorResponse {
     /** Explanation specific to this occurrence */
     detail: string;
     /** Stable machine-readable slug to branch on */
-    code: ErrorResponse.Code;
+    code: string;
     /** Retained for existing clients. Same value as `code`. */
     error: string;
     /** Retained for existing clients. Same value as `detail`. */
@@ -23,25 +23,4 @@ export interface ErrorResponse {
     /** Same value as the `x-request-id` response header. Quote it when reporting a problem; it identifies the exact request in our logs. */
     request_id?: string | undefined;
     details?: (unknown | null) | undefined;
-}
-
-export namespace ErrorResponse {
-    /** Stable machine-readable slug to branch on */
-    export const Code = {
-        NotFound: "not_found",
-        BadRequest: "bad_request",
-        Unauthorized: "unauthorized",
-        ValidationError: "validation_error",
-        UnsupportedMediaType: "unsupported_media_type",
-        PayloadTooLarge: "payload_too_large",
-        RateLimited: "rate_limited",
-        StreamReplayLimitExceeded: "stream_replay_limit_exceeded",
-        StreamUnavailable: "stream_unavailable",
-        ServiceOverloaded: "service_overloaded",
-        RequestTimeout: "request_timeout",
-        StreamError: "stream_error",
-        StoreError: "store_error",
-        InternalError: "internal_error",
-    } as const;
-    export type Code = (typeof Code)[keyof typeof Code];
 }

@@ -104,8 +104,9 @@ export class EnvironmentsClient {
      *
      * @example
      *     await client.environments.createEnvironment({
-     *         slug: "slug",
-     *         label: "label"
+     *         slug: "support-sandbox",
+     *         label: "Support sandbox",
+     *         description: "Isolated environment for support-agent backtests."
      *     })
      */
     public createEnvironment(
